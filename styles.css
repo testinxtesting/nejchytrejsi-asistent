@@ -8,14 +8,20 @@
 */
 
 /* Root colour definitions allow easy theming and dark mode support */
+/*
+  Colour palette definitions. In the light theme we opt for a bright white
+  canvas with subtle grey backgrounds for contrast. Purple and green accents
+  remain to convey sophistication and growth. In dark mode the colours revert
+  to the original deep navy and lavender combination.
+*/
 :root {
   --primary: #A78BFA; /* Digital Lavender */
   --secondary: #0D1333; /* Deep navy */
   --accent: #4CAF50; /* Verdant Green */
-  --background-light: #f7f8fc;
-  --background-alt: #ffffff;
-  --text-dark: #0D1333;
-  --text-light: #ffffff;
+  --background-light: #ffffff; /* overall page background */
+  --background-alt: #f5f6fa; /* light grey for alternate sections */
+  --text-dark: #0D1333; /* dark text on light backgrounds */
+  --text-light: #0D1333; /* unify light text colour for light theme */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -109,13 +115,17 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 4rem 0;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 70%);
-  color: var(--text-light);
+  /* Lighten the hero gradient so the page feels bright and approachable.  We
+     fade from our lavender accent into a clean white canvas. */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--background-light) 70%);
+  color: var(--text-dark);
 }
 
 .hero-content {
   flex: 1 1 50%;
   max-width: 600px;
+  /* Add horizontal padding so the text isn’t flush against the left edge. */
+  padding-left: 1rem;
 }
 
 .hero h1 {
@@ -190,6 +200,11 @@ header {
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ensure service item headings remain visible on light backgrounds */
+.service-item h3 {
+  color: var(--secondary);
 }
 
 .service-item:hover {
