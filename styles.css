@@ -117,15 +117,17 @@ header {
   padding: 4rem 0;
   /* Lighten the hero gradient so the page feels bright and approachable.  We
      fade from our lavender accent into a clean white canvas. */
-  background: linear-gradient(135deg, var(--primary) 0%, var(--background-light) 70%);
+      /* Soften the hero gradient by fading fully into the page background instead of stopping
+         at 70%. This ensures the hero section feels light and airy on large screens. */
+      background: linear-gradient(135deg, var(--primary) 0%, var(--background-light) 100%);
   color: var(--text-dark);
 }
 
 .hero-content {
   flex: 1 1 50%;
   max-width: 600px;
-  /* Add horizontal padding so the text isn’t flush against the left edge. */
-  padding-left: 1rem;
+      /* Add more horizontal padding so the text isn’t flush against the left edge. */
+      padding-left: 2rem;
 }
 
 .hero h1 {
